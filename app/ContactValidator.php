@@ -14,9 +14,7 @@ class ContactValidator
      */
     public function validateEmail(string $email): void
     {
-        $matchesEmailPattern = preg_match("/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,})$/i", $email);
-
-        if (!$matchesEmailPattern) {
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             throw new InvalidEmailException();
         }
     }
