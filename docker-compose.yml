@@ -20,6 +20,7 @@ services:
       - 8000:80
     volumes:
       - "./.docker/nginx/default.conf:/etc/nginx/conf.d/default.conf"
+      - "./public:/var/www/html/public"
     networks:
       - demo-xhprof
 
